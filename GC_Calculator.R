@@ -1,4 +1,8 @@
 gc_content <- function(seq) {
+  if(is.null(seq) || seq == "") {
+    return(invisible())
+  }
+  
   seq <- toupper(seq)
   bases <- strsplit(seq, "")[[1]]
   gc_count <- sum(bases == "G" | bases == "C")

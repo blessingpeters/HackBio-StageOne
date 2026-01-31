@@ -7,6 +7,9 @@ aa_weights <- c(
 )
 
 protein_weight <- function(sequence = "Blessing") {
+  if (is.null(sequence) || sequence == "") {
+    return(invisible())
+  }
   sequence <- toupper(sequence)
   aa_vector <- strsplit(sequence, "")[[1]]
   total_weight <- 0
@@ -22,5 +25,6 @@ protein_weight <- function(sequence = "Blessing") {
   return(total_weight_kda)
 }
 
-protein_weight("ACDE")      # Should return the sum of weights for
+protein_weight("ACDE")
 protein_weight("Blessing")
+protein_weight("")
